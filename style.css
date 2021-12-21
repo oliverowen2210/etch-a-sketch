@@ -3,6 +3,7 @@ html,
 #wrapper {
     height: 100%;
     font-family: cursive;
+    background: rgb(192, 45, 45);
 }
 
 :root {
@@ -13,11 +14,24 @@ html,
 * {
     padding: 0;
     margin: 0;
+    -webkit-user-drag: none;
 }
 
 #wrapper {
     display: flex;
     flex-direction: column;
+}
+
+p, h2, a {
+    color: rgb(240, 240, 16);
+}
+
+button {
+    background: rgb(240, 240, 16);
+}
+
+#size {
+    font-size: 24px;
 }
 
 #reset {
@@ -45,6 +59,7 @@ html,
 
 .container input {
     width: 150px;
+    padding: 0px;
 }
 
 .cell{
@@ -53,8 +68,8 @@ html,
 }
 
 #grid {
-    width: 1000px;
-    height: 750px;
+    width: 900px;
+    height: 730px;
     display: grid;
     margin-top: 20px;
     grid-template-columns: repeat(var(--grid-cols), 1fr);
@@ -63,6 +78,7 @@ html,
     align-self: center;
     border: 2px solid black;
     border-radius: 5px;
+    background: red;
 }
 
 #pls {
@@ -76,7 +92,6 @@ html,
 
 #options {
     width: 200px;
-    height: auto;
     font-size: 32px;
     text-align: center;
 }
@@ -109,4 +124,8 @@ html,
 li {
     list-style-type: none;
     font-size: 20px;
+}
+
+a {
+    text-decoration: underline;
 }

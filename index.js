@@ -1,9 +1,3 @@
-//input? no
-//interface? yes
-//outcome? 16x16 grid of black divs that change color when hovered over
-//how to get outcome? create html containers for 'reset' button and
-//the 'grid' that will hold the divs, put them on top of each other
-
 let root = document.documentElement;
 let resetButton = document.querySelector('#reset-button');
 let grid = document.querySelector('#grid');
@@ -76,4 +70,3 @@ paints.forEach((button) => button.addEventListener('click', (e) => {
 customColor.addEventListener('input', (e) => custom = customColor.value);
 sizeBar.addEventListener('change', (e) => sizeText.textContent = `${sizeBar.value} x ${sizeBar.value}`);
 sizeBar.addEventListener('input', (e) => sizeText.textContent = `${sizeBar.value} x ${sizeBar.value}`);
-

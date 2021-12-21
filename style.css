@@ -1,0 +1,112 @@
+body,
+html,
+#wrapper {
+    height: 100%;
+    font-family: cursive;
+}
+
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#reset {
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    gap: 20px;
+}
+
+#reset-button {
+    width: 150px;
+    height: 60px;
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.container div {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.container input {
+    width: 150px;
+}
+
+.cell{
+    min-width: 1px;
+    min-height: 1px;
+}
+
+#grid {
+    width: 1000px;
+    height: 750px;
+    display: grid;
+    margin-top: 20px;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    justify-self: center;
+    align-self: center;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#pls {
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu {
+    margin-top: 80px;
+}
+
+#options {
+    width: 200px;
+    height: auto;
+    font-size: 32px;
+    text-align: center;
+}
+
+#options button {
+    width: 70px;
+    height: 30px;
+}
+
+#paints div {
+    display: flex;
+    justify-content: center;
+}
+
+#paints div button {
+    width: 150px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+}
+
+
+
+#paints {
+    margin-top: 30px;
+}
+
+li {
+    list-style-type: none;
+    font-size: 20px;
+}

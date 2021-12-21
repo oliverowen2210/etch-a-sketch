@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-sketch</title>
+    <link href='style.css' rel='stylesheet'>
+    <script src='index.js' defer></script>
+</head>
+<body>
+    <div id='wrapper'>
+        <div class='container'id='reset'>
+            <button id ='reset-button'>reset</button>
+            <div>
+                <p id='size'>50 x 50</p>
+                <input type=range min=1 max=100 value=50 id='sizebar'>
+            </div>  
+        </div>
+    <div id='pls'>
+        <div class='menu' id='links'>
+            <h3>Other Projects</h3>
+            <ul>
+                <li><a href='https://oliverowen2210.github.io/rock-paper-scissors/'>rock paper scissors</a></li>
+                <li><a href='https://oliverowen2210.github.io/odin-landing-page/'>landing page</a></li>
+                <li><a href='https://oliverowen2210.github.io/odin-recipes/'>recipes</a></li>
+            </ul>
+        </div>
+        <div class='container'id='grid'></div>
+            <div class='menu' id='options'>
+                <div id='paints'>
+                    <p>Color</p>
+                    <div>
+                        <button data-color='custom'><input type=color id='custom'>Custom</button>
+                    </div>
+                    <button data-color='black'>Black</button>
+                    <button data-color='white'>White</button>
+                    <button data-color='red'>Red</button>
+                    <button data-color='green'>Green</button>
+                    <button data-color='yellow'>Yellow</button>
+                    <button data-color='blue'>Blue</button>
+                    <button data-color='rainbow'>Rainbow</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

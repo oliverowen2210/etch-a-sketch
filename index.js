@@ -25,6 +25,7 @@ function paint(tar, color) {
     if(color=='default') {
         tar.style.backgroundColor = 'darkgray';
         tar.style.border = '0.5px solid gray';
+        tar.style.filter = 'brightness(100%)';
     } else {
         tar.style.backgroundColor = `${color}`;
         tar.style.border = `${color}`;

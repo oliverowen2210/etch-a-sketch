@@ -4,6 +4,7 @@ let grid = document.querySelector('#grid');
 let customColor = document.querySelector('#custom');
 let sizeText = document.querySelector('#size');
 let sizeBar = document.querySelector('#sizebar')
+let paints = document.querySelectorAll('#paints button');
 
 let mouseDown = false;
 root.addEventListener('mousedown', () => mouseDown = true);
@@ -12,7 +13,23 @@ root.addEventListener('mouseup', () => mouseDown = false);
 let paintColor = 'black';
 defaultGridSize = 50;
 
+let rainbow = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'darkviolet']
+
 createGrid(defaultGridSize);
+
+function random(max) {
+    return Math.floor(Math.random() * max);
+};
+
+function paint(tar, color) {
+    if(color=='default') {
+        tar.style.backgroundColor = 'darkgray';
+        tar.style.border = '0.5px solid gray';
+    } else {
+        tar.style.backgroundColor = `${color}`;
+        tar.style.border = `${color}`;
+    };
+};
 
 function createGrid(size) {
     root.style.setProperty('--grid-cols', `${size}`);
@@ -21,14 +38,29 @@ function createGrid(size) {
         cell = document.createElement('div');
         cell.style.backgroundColor = 'darkgray';
         cell.style.border = '0.5px solid gray';
-        cell.addEventListener('mouseover', (e) => {
-        if (mouseDown) {
-            if (paintColor == 'rainbow') e.target.style.backgroundColor = `${randomColor()}`;
-            else if (paintColor == 'custom') e.target.style.backgroundColor = `${custom}`;
-            else e.target.style.backgroundColor = `${paintColor}`}});
+        cell.dataset.darken = '100';
+        cell.style.filter = `brightness(${cell.dataset.darken}%)`
+        cell.addEventListener('mouseover', (e) => paintSelector(e));
+        cell.addEventListener('mousedown', (e) => {
+            mouseDown = true;
+            paintSelector(e);
+        });
         grid.appendChild(cell).className = 'cell';
     };
-};
+}
+
+function paintSelector(e) {
+    if (mouseDown) {
+        if (paintColor == 'darken') {
+            e.target.dataset.darken = `${e.target.dataset.darken - 10}`
+            e.target.style.filter = `brightness(${e.target.dataset.darken}%)`;
+            console.log(e.target.style.filter);
+        }
+        else if (paintColor == 'rainbow') paint(e.target, rainbow[random(7)]);
+        else if (paintColor == 'custom') paint(e.target, custom)
+        else if (paintColor == 'eraser') paint(e.target, 'default');
+        else paint(e.target, paintColor);
+}};
 
 function deleteGrid() {
     while (grid.firstChild) {
@@ -36,35 +68,16 @@ function deleteGrid() {
     };
 };
 
-function random(max) {
-    return Math.floor(Math.random() * max);
-};
-
-function randomColor() {
-    r = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
-    return r;
-};
-
 resetButton.addEventListener('click', () => {
     let gridSize = document.querySelector('.container input').value
     deleteGrid();
     createGrid(gridSize);
 });
-
-
-backgrounds = document.querySelectorAll('#backgrounds button');
-backgrounds.forEach(button => button.addEventListener('click', (e) => {
-    backgroundColor = button.textContent.toLowerCase();
-    cells = document.querySelectorAll('.cell');
-    cells.forEach((cell) => {
-        if(cell.style.backgroundColor=='white'||cell.style.backgroundColor=='black'){
-            cell.style.backgroundColor = `${backgroundColor}`
-        }})}));
-
     
-paints = document.querySelectorAll('#paints button');
 paints.forEach((button) => button.addEventListener('click', (e) => {
     paintColor = button.textContent.toLowerCase();
+    paints.forEach((button) => button.classList.remove('selected'));
+    button.classList.add('selected');
 }));
 
 customColor.addEventListener('input', (e) => custom = customColor.value);

@@ -30,6 +30,11 @@ button {
     background: rgb(240, 240, 16);
 }
 
+.selected {
+    background: rgba(255, 255, 46, 0.568);
+    border: 1px solid black;
+}
+
 #size {
     font-size: 24px;
 }
@@ -114,8 +119,6 @@ button {
     align-items: center;
     margin: 0;
 }
-
-
 
 #paints {
     margin-top: 30px;
